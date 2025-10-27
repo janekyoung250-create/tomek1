@@ -54,18 +54,19 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
+      object-fit: contain;        /* zachowuje proporcje */
+      background-color: black;    /* wypełnia resztę ekranu */
       z-index: 9999;
-      opacity: 0;           /* start transparent */
-      transition: opacity 1.5s ease-in-out; /* fade-in efekt */
+      opacity: 0;                 /* start transparent */
+      transition: opacity 1.5s ease-in-out; /* fade-in */
     }
   </style>
 </head>
 <body>
 
   <div id="mainContent">
-    <h1>tomek</h1>
-    <button onclick="showFullScreen()">edit tomka</button>
+    <h1>Homik 🐹</h1>
+    <button onclick="showFullScreen()">Mówię o tym pliku</button>
   </div>
 
   <!-- Obrazek i dźwięk -->
@@ -84,7 +85,7 @@
       // Opóźnienie fade-in
       setTimeout(() => {
         img.style.opacity = 1;
-      }, 50); // drobny delay żeby transition zadziałał
+      }, 50); // małe opóźnienie, żeby transition zadziałał
 
       // Odtwórz dźwięk
       const sound = document.getElementById('customSound');
