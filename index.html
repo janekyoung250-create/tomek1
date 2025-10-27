@@ -15,6 +15,13 @@
       background: linear-gradient(135deg, #FFD166, #FCA311);
       font-family: 'Comic Sans MS', sans-serif;
       color: #333;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 28px;
+      text-shadow: 2px 2px #fff6;
     }
 
     button {
@@ -37,7 +44,7 @@
       margin-top: 30px;
       max-width: 300px;
       border-radius: 15px;
-      display: none; /* na start obrazek niewidoczny */
+      display: none; /* obrazek niewidoczny na start */
     }
   </style>
 </head>
@@ -46,15 +53,16 @@
   <h1>Homik 🐹</h1>
   <button onclick="showImageAndSound()">Mówię o tym pliku</button>
 
-  <img id="customImage" src="TWOJE_ZDJECIE.jpg" alt="Moje zdjęcie">
-  <audio id="customSound" src="TWOJ_DZWIEK.mp3"></audio>
+  <!-- Twój obrazek i dźwięk -->
+  <img id="customImage" src="IMG_7694.jpg" alt="Moje zdjęcie">
+  <audio id="customSound" src="TAK TAK.mp3"></audio>
 
   <script>
     function showImageAndSound() {
       const img = document.getElementById('customImage');
       const sound = document.getElementById('customSound');
 
-      img.style.display = 'block'; // pokaz obrazek
+      img.style.display = 'block'; // pokaż obrazek
       sound.play(); // odtwórz dźwięk
     }
   </script>
