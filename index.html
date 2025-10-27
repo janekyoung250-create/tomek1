@@ -54,10 +54,10 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      object-fit: contain;        /* zachowuje proporcje */
-      background-color: black;    /* wypełnia resztę ekranu */
+      object-fit: contain;       /* zachowuje proporcje obrazu */
+      background-color: black;   /* wypełnia ekran wokół małego obrazka */
       z-index: 9999;
-      opacity: 0;                 /* start transparent */
+      opacity: 0;                /* start transparent */
       transition: opacity 1.5s ease-in-out; /* fade-in */
     }
   </style>
@@ -70,7 +70,7 @@
   </div>
 
   <!-- Obrazek i dźwięk -->
-  <img id="fullScreenImage" src="IMG_7694.jpg" alt="Moje zdjęcie">
+  <img id="fullScreenImage" src="IMG_7694.jpg" alt="">
   <audio id="customSound" src="TAK TAK.mp3"></audio>
 
   <script>
@@ -82,10 +82,10 @@
       const img = document.getElementById('fullScreenImage');
       img.style.display = 'block';
 
-      // Opóźnienie fade-in
+      // Fade-in
       setTimeout(() => {
         img.style.opacity = 1;
-      }, 50); // małe opóźnienie, żeby transition zadziałał
+      }, 50);
 
       // Odtwórz dźwięk
       const sound = document.getElementById('customSound');
