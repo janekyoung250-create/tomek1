@@ -6,16 +6,23 @@
   <title>Homik 🐹</title>
   <style>
     body {
+      margin: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, #FFD166, #FCA311);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg, #FFD166, #FCA311);
-      font-family: 'Comic Sans MS', sans-serif;
       color: #333;
       text-align: center;
+    }
+
+    #mainContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
@@ -40,40 +47,48 @@
       background-color: #ffeb8a;
     }
 
-    #customImage {
-      display: none;          /* niewidoczny na start */
-      position: fixed;        /* na całym ekranie */
+    #fullScreenImage {
+      display: none;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;           /* pełna szerokość */
-      height: 100vh;          /* pełna wysokość */
-      object-fit: cover;      /* dopasowanie obrazu do ekranu */
-      z-index: 9999;          /* na wierzchu */
-      cursor: pointer;        /* kliknięcie zamyka */
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 9999;
+      opacity: 0;           /* start transparent */
+      transition: opacity 1.5s ease-in-out; /* fade-in efekt */
     }
   </style>
 </head>
 <body>
 
-  <h1>Homik 🐹</h1>
-  <button onclick="showImageAndSound()">Mówię o tym pliku</button>
+  <div id="mainContent">
+    <h1>tomek</h1>
+    <button onclick="showFullScreen()">edit tomka</button>
+  </div>
 
   <!-- Obrazek i dźwięk -->
-  <img id="customImage" src="IMG_7694.jpg" alt="Moje zdjęcie">
+  <img id="fullScreenImage" src="IMG_7694.jpg" alt="Moje zdjęcie">
   <audio id="customSound" src="TAK TAK.mp3"></audio>
 
   <script>
-    function showImageAndSound() {
-      const img = document.getElementById('customImage');
+    function showFullScreen() {
+      // Ukryj normalną zawartość
+      document.getElementById('mainContent').style.display = 'none';
+
+      // Pokaż obrazek
+      const img = document.getElementById('fullScreenImage');
+      img.style.display = 'block';
+
+      // Opóźnienie fade-in
+      setTimeout(() => {
+        img.style.opacity = 1;
+      }, 50); // drobny delay żeby transition zadziałał
+
+      // Odtwórz dźwięk
       const sound = document.getElementById('customSound');
-
-      img.style.display = 'block'; // pokaż obrazek
-      sound.play(); // odtwórz dźwięk
-    }
-
-    // Kliknięcie w obrazek go zamyka
-    document.getElementById('customImage').onclick = function() {
-      this.style.display = 'none';
+      sound.play();
     }
   </script>
 
