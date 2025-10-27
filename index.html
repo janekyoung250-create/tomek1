@@ -40,11 +40,16 @@
       background-color: #ffeb8a;
     }
 
-    img {
-      margin-top: 30px;
-      max-width: 300px;
-      border-radius: 15px;
-      display: none; /* obrazek niewidoczny na start */
+    #customImage {
+      display: none;          /* niewidoczny na start */
+      position: fixed;        /* na całym ekranie */
+      top: 0;
+      left: 0;
+      width: 100vw;           /* pełna szerokość */
+      height: 100vh;          /* pełna wysokość */
+      object-fit: cover;      /* dopasowanie obrazu do ekranu */
+      z-index: 9999;          /* na wierzchu */
+      cursor: pointer;        /* kliknięcie zamyka */
     }
   </style>
 </head>
@@ -53,7 +58,7 @@
   <h1>Homik 🐹</h1>
   <button onclick="showImageAndSound()">Mówię o tym pliku</button>
 
-  <!-- Twój obrazek i dźwięk -->
+  <!-- Obrazek i dźwięk -->
   <img id="customImage" src="IMG_7694.jpg" alt="Moje zdjęcie">
   <audio id="customSound" src="TAK TAK.mp3"></audio>
 
@@ -64,6 +69,11 @@
 
       img.style.display = 'block'; // pokaż obrazek
       sound.play(); // odtwórz dźwięk
+    }
+
+    // Kliknięcie w obrazek go zamyka
+    document.getElementById('customImage').onclick = function() {
+      this.style.display = 'none';
     }
   </script>
 
